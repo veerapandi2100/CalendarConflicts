@@ -29,7 +29,7 @@ This Node.js API detects and resolves calendar scheduling conflicts by checking 
 **Method:** `POST`  
 **Body parameters:**
 
-```json
+json
 {
   "proposedEvent": {
     "start": "10:30",
