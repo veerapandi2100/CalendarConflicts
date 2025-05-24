@@ -4,9 +4,13 @@ const {
   suggestTimesHandler
 } = require('../controllers/calendarController');
 
+const {
+  validateCalendarRequest
+} = require('../middleware/validateCalendar');
+
 const router = express.Router();
 
-router.post('/check-conflicts', checkConflictsHandler);
-router.post('/suggest-times', suggestTimesHandler);
+router.post('/check-conflicts', validateCalendarRequest, checkConflictsHandler);
+router.post('/suggest-times', validateCalendarRequest, suggestTimesHandler);
 
 module.exports = router;
