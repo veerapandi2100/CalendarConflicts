@@ -5,7 +5,8 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(express.json());
 
 // Routes
 app.use('/api/calendar', calendarRoutes);

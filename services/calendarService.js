@@ -1,18 +1,21 @@
-const dayjs = require('dayjs');
+const dayjs = require("dayjs")
 const isBetween = require('dayjs/plugin/isBetween');
 const { WORK_HOURS } = require('../config/default');
 
 dayjs.extend(isBetween);
 
 function parseTime(time) {
-  return dayjs(time, 'HH:mm');
+  const [hour, minute] = time.split(":").map(Number);
+  return dayjs().hour(hour).minute(minute).second(0);
 }
+
 
 function hasOverlap(start1, end1, start2, end2) {
   return start1.isBefore(end2) && end1.isAfter(start2);
 }
 
 function checkConflicts(proposed, existingEvents, bufferMinutes) {
+    console.log("====>>>>", proposed, existingEvents, bufferMinutes)
   const conflicts = [];
   const propStart = parseTime(proposed.start).subtract(bufferMinutes, 'minute');
   const propEnd = parseTime(proposed.end).add(bufferMinutes, 'minute');
@@ -30,10 +33,12 @@ function checkConflicts(proposed, existingEvents, bufferMinutes) {
       conflicts.push({ event, commonParticipants });
     }
   }
+  console.log("====>>>", conflicts);
   return conflicts;
 }
 
 function suggestTimes(proposed, existingEvents, bufferMinutes) {
+    console.log("Sugg====>>>>", proposed, existingEvents, bufferMinutes)
   const suggestions = [];
   const propStart = parseTime(proposed.start);
   const duration = parseTime(proposed.end).diff(propStart, 'minute');
