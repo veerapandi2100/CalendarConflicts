@@ -88,7 +88,7 @@ Response: Returns up to 3 alternative time slots that avoid conflicts and respec
       "end": "14:00"
     }
   ]
-}```
+}```json
 How to Run
 Clone the repository
 
