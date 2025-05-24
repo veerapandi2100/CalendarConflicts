@@ -103,3 +103,11 @@ Times are in HH:mm 24-hour format.
 
 Buffer time and working hours are configurable in the config file.
 
+
+## API Testing Screenshot
+
+Here's a screenshot of the Postman request testing the `/check-conflicts` endpoint:
+
+![Postman Check Conflicts](./assets/screenshot.png)
+
+
