@@ -29,7 +29,7 @@ This Node.js API detects and resolves calendar scheduling conflicts by checking 
 **Method:** `POST`  
 **Body parameters:**
 
-json
+```json
 {
   "proposedEvent": {
     "start": "10:30",
@@ -88,7 +88,7 @@ Response: Returns up to 3 alternative time slots that avoid conflicts and respec
       "end": "14:00"
     }
   ]
-}
+}```
 How to Run
 Clone the repository
 
